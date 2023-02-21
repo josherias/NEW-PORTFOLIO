@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.active {
+  @apply text-gray-900 border-b-2 border-b-gray-900;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  @apply p-3 outline-none text-sm bg-gray-50 text-gray-900 my-2 rounded;
+}
