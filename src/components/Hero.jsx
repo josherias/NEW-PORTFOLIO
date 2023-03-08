@@ -4,7 +4,6 @@ import LinkIcon from "./LinkIcon";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import Avatar from "../assets/avatar.png";
-import Typed from "react-typed";
 
 const icons = [
   {
