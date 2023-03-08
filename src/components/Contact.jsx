@@ -1,21 +1,45 @@
-import React from "react";
+import React, { useRef } from "react";
 import ContactIcons from "./common/ContactIcons";
 import GmailIcon from "../assets/gmail.png";
 import Tel from "../assets/contact.png";
 import SendIcon from "@mui/icons-material/Send";
-
-const icons = [
-  {
-    iconText: GmailIcon,
-    info: "josherias10@gmail.com",
-  },
-  {
-    iconText: Tel,
-    info: "+256 777 274857",
-  },
-];
+import emailjs from "@emailjs/browser";
 
 const Contact = () => {
+  const form = useRef();
+
+  const icons = [
+    {
+      iconText: GmailIcon,
+      info: "josherias10@gmail.com",
+    },
+    {
+      iconText: Tel,
+      info: "+256 777 274857",
+    },
+  ];
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        `${import.meta.env.VITE_SERVICE_ID}`,
+        `${import.meta.env.VITE_TEMPLATE_ID}`,
+        form.current,
+        `${import.meta.env.VITE_PUBLIC_KEY}`
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+          console.log("Message sent");
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+  };
+
   return (
     <section className="flex flex-col items-center justify-center w-[100%] px-10 py-10 mb-5">
       <div className="md:w-[50%] flex flex-col">
@@ -28,10 +52,15 @@ const Contact = () => {
           ))}
         </div>
 
-        <form className="mt-10">
+        <form ref={form} className="mt-10" onSubmit={sendEmail}>
           <div className="flex flex-col">
             <label className="text-gray-500 text-sm">Name</label>
-            <input type="text" className="border" placeholder="Your Name..." />
+            <input
+              type="text"
+              className="border"
+              placeholder="Your Name..."
+              name="user_name"
+            />
           </div>
 
           <div className="flex flex-col">
@@ -40,15 +69,19 @@ const Contact = () => {
               type="email"
               className="border"
               placeholder="johndoe@gmail.com"
+              name="user_email"
             />
           </div>
 
           <div className="flex flex-col">
             <label className="text-gray-500 text-sm">Message</label>
-            <textarea type="email" className="border" />
+            <textarea type="email" className="border" name="message" />
           </div>
 
-          <button className="bg-gray-800 hover:bg-gray-900 text-white py-2 px-4 mt-4 rounded flex gap-2">
+          <button
+            type="submit"
+            className="bg-gray-800 hover:bg-gray-900 text-white py-2 px-4 mt-4 rounded flex gap-2"
+          >
             Submit
             <SendIcon width="small" />
           </button>

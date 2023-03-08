@@ -8,9 +8,6 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   const [toggleLinks, setToggleLinks] = useState(true);
 
-  const windowSize = useRef([window.innerWidth]);
-  console.log(windowSize[0]);
-
   const links = [
     {
       title: "Home",
@@ -22,7 +19,7 @@ const Navbar = () => {
     },
     {
       title: "Resume",
-      to: "/resume",
+      to: "https://github.com/josherias/new/blob/main/LUBULWA_ELIAS_CV.pdf",
     },
   ];
 

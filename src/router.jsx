@@ -3,6 +3,8 @@ import Home from "./views/Home";
 import Projects from "./views/Projects";
 import NotFound from "./views/NotFound";
 import DefaultContainer from "./components/DefaultContainer";
+import PersonalProjects from "./views/PersonalProjects";
+import ClientsProject from "./views/ClientsProject";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +18,16 @@ const router = createBrowserRouter([
       {
         path: "/projects",
         element: <Projects />,
+        children: [
+          {
+            path: "/projects",
+            element: <PersonalProjects />,
+          },
+          {
+            path: "/projects/clients",
+            element: <ClientsProject />,
+          },
+        ],
       },
     ],
   },
