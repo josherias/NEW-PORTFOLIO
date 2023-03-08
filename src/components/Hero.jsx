@@ -28,13 +28,7 @@ const Hero = () => {
       <h1 className="text-3xl font-black text-gray-800 mb-3">
         Lubuulwa Josh Elias
       </h1>
-      <Typed
-        className="text-2xl text-gray-700 mb-3"
-        strings={["Software Developer", "Web Developer", "Computer Engineer"]}
-        typeSpeed={120}
-        backSpeed={140}
-        loop
-      />
+      <h1 className="text-2xl text-gray-700 mb-3">Software Developer</h1>
       <p className="flex-wrap text-center text-gray-900 mb-3">
         Software Developer with over two years of experience in building
         solutions <br /> with technology using Javascript & PHP
