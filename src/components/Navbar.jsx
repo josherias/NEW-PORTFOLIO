@@ -17,11 +17,21 @@ const Navbar = () => {
       title: "Projects",
       to: "/projects",
     },
-    {
-      title: "Resume",
-      to: "https://github.com/josherias/new/blob/main/LUBULWA_ELIAS_CV.pdf",
-    },
   ];
+
+  const onButtonClick = () => {
+    fetch("cv.pdf").then((response) => {
+      response.blob().then((blob) => {
+        // Creating new object of PDF file
+        const fileURL = window.URL.createObjectURL(blob);
+        // Setting various property values
+        let alink = document.createElement("a");
+        alink.href = fileURL;
+        alink.download = "cv.pdf";
+        alink.click();
+      });
+    });
+  };
 
   return (
     <div className="flex flex-col fixed top-0 w-[100%] bg-white pt-4 px-5 border md:flex-row md:items-center md:justify-between md:px-[5rem] md:pb-1">
@@ -58,6 +68,12 @@ const Navbar = () => {
         {links.map((link, index) => (
           <NavLinkComponent key={index} title={link.title} to={link.to} />
         ))}
+        <button
+          onClick={onButtonClick}
+          className="text-gray-500 pb-2 hover:text-gray-900 text-sm cursor-pointer"
+        >
+          Resume
+        </button>
       </div>
     </div>
   );
