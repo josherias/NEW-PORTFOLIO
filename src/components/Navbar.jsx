@@ -62,6 +62,12 @@ const Navbar = () => {
           {links.map((link, index) => (
             <NavLinkComponent key={index} title={link.title} to={link.to} />
           ))}
+          <button
+            onClick={onButtonClick}
+            className="text-gray-500 pb-2 hover:text-gray-900 text-sm cursor-pointer"
+          >
+            Resume
+          </button>
         </div>
       </Transition>
       <div className="hidden md:flex gap-[2rem]">

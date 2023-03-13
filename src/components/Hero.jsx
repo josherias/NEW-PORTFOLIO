@@ -4,6 +4,7 @@ import LinkIcon from "./LinkIcon";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import Avatar from "../assets/avatar.png";
+import { Typewriter } from "react-simple-typewriter";
 
 const icons = [
   {
@@ -23,11 +24,22 @@ const icons = [
 
 const Hero = () => {
   return (
-    <section className="flex flex-col items-center justify-center h-[90vh] w-[100%] px-10 mt-20">
+    <section className="flex flex-col items-center justify-center h-[60vh] w-[100%] px-10 mt-20 md:h-[90vh]">
       <h1 className="text-3xl font-black text-gray-800 mb-3">
         Lubuulwa Josh Elias
       </h1>
-      <h1 className="text-2xl text-gray-700 mb-3">Software Developer</h1>
+      <h1 className="text-2xl text-gray-700 mb-3">
+        Software &nbsp;
+        <Typewriter
+          words={["Developer", "Engineer"]}
+          loop={false}
+          cursor
+          typeSpeed={150}
+          deleteSpeed={100}
+          delaySpeed={1000}
+        />
+      </h1>
+
       <p className="flex-wrap text-center text-gray-900 mb-3">
         Software Developer with over two years of experience in building
         solutions <br /> with technology using Javascript & PHP
