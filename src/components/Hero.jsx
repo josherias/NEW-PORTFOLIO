@@ -6,25 +6,39 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 import Avatar from "../assets/avatar.png";
 import { Typewriter } from "react-simple-typewriter";
 
-const icons = [
-  {
-    icon: <GitHubIcon fontSize="large" />,
-    to: "github",
-  },
-
-  {
-    icon: <LinkedInIcon fontSize="large" />,
-    to: "linkedIn",
-  },
-  {
-    icon: <TwitterIcon fontSize="large" />,
-    to: "Twitter",
-  },
-];
-
 const Hero = () => {
+  const icons = [
+    {
+      icon: <GitHubIcon fontSize="large" />,
+      to: "github",
+    },
+
+    {
+      icon: <LinkedInIcon fontSize="large" />,
+      to: "linkedIn",
+    },
+    {
+      icon: <TwitterIcon fontSize="large" />,
+      to: "Twitter",
+    },
+  ];
+
+  const onButtonClick = () => {
+    fetch("cv.pdf").then((response) => {
+      response.blob().then((blob) => {
+        // Creating new object of PDF file
+        const fileURL = window.URL.createObjectURL(blob);
+        // Setting various property values
+        let alink = document.createElement("a");
+        alink.href = fileURL;
+        alink.download = "cv.pdf";
+        alink.click();
+      });
+    });
+  };
+
   return (
-    <section className="flex flex-col items-center justify-center h-[100vh] w-[100%] px-10 mt-50 md:mt-20 md:h-[90vh]">
+    <section className="flex flex-col items-center justify-center w-[100%] px-10 py-10 mt-[90px] md:mt-20 md:h-[100vh]">
       <h1 className="text-2xl md:text-3xl font-black text-gray-800 mb-3">
         Lubuulwa Josh Elias
       </h1>
@@ -56,6 +70,13 @@ const Hero = () => {
           className="w-[180px] mt-5 md:w-[250px]"
         />
       </div>
+
+      <button
+        className="bg-gray-800 hover:bg-gray-900 text-white py-2 my-10 px-2 rounded"
+        onClick={onButtonClick}
+      >
+        Download CV
+      </button>
     </section>
   );
 };
