@@ -24,7 +24,7 @@ const icons = [
 
 const Hero = () => {
   return (
-    <section className="flex flex-col items-center justify-center h-[70vh] w-[100%] px-10 mt-20 md:h-[90vh]">
+    <section className="flex flex-col items-center justify-center h-[80vh] w-[100%] px-10 mt-35 md:mt-20 md:h-[90vh]">
       <h1 className="text-2xl md:text-3xl font-black text-gray-800 mb-3">
         Lubuulwa Josh Elias
       </h1>
