@@ -47,7 +47,9 @@ const techs = [
 const Technologies = () => {
   return (
     <section className="flex flex-col items-center justify-center w-[100%] px-10 py-[80px] bg-gray-50">
-      <h1 className="text-4xl font-black text-gray-800 mb-4">Technologies</h1>
+      <h1 className="text-2xl md:text-3xl font-black text-gray-800 mb-4">
+        Technologies
+      </h1>
       <h3 className="text-gray-700 mb-4">Check out my tech stack</h3>
       <div className="flex gap-2 flex-wrap items-center justify-center">
         {techs.map((tech, index) => (

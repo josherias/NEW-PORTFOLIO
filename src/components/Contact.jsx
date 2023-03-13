@@ -43,7 +43,7 @@ const Contact = () => {
   return (
     <section className="flex flex-col items-center justify-center w-[100%] px-10 py-10 mb-5">
       <div className="md:w-[50%] flex flex-col">
-        <h1 className="text-4xl font-black text-gray-800 my-4 text-center">
+        <h1 className="text-2xl md:text-3xl font-black text-gray-800 my-4 text-center">
           Get In Touch With Me
         </h1>
         <div className="flex flex-wrap m-auto gap-2">
