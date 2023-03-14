@@ -10,16 +10,16 @@ const Hero = () => {
   const icons = [
     {
       icon: <GitHubIcon fontSize="large" />,
-      to: "github",
+      to: "https://github.com/josherias",
     },
 
     {
       icon: <LinkedInIcon fontSize="large" />,
-      to: "linkedIn",
+      to: "https://www.linkedin.com/in/josh-erias-lubuulwa-b395241b6/",
     },
     {
       icon: <TwitterIcon fontSize="large" />,
-      to: "Twitter",
+      to: "https://twitter.com/josh_erias",
     },
   ];
 
@@ -54,9 +54,11 @@ const Hero = () => {
         />
       </h1>
 
-      <p className="flex-wrap text-center text-gray-900 mb-3">
-        Software Developer with over two years of experience in building
-        solutions <br /> with technology using Javascript & PHP
+      <p className="flex-wrap text-center text-gray-600 mb-3">
+        Experienced software developer with a passion for innovative solutions.{" "}
+        <br />
+        Skilled in multiple programming languages and frameworks, <br />{" "}
+        dedicated to continuous learning and collaboration.
       </p>
       <div className="flex gap-5 my-5">
         {icons.map((i, index) => (

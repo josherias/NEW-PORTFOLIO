@@ -83,7 +83,7 @@ const Contact = () => {
             className="bg-gray-800 hover:bg-gray-900 text-white py-2 px-4 mt-4 rounded flex gap-2"
           >
             Submit
-            <SendIcon width="small" />
+            <SendIcon />
           </button>
         </form>
       </div>

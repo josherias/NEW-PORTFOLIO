@@ -9,7 +9,7 @@ const Projects = () => {
         <h1 className="text-2xl font-black text-gray-800 my-3">
           My Recent works
         </h1>
-        <p className="flex-wrap text-center text-gray-900 mb-3">
+        <p className="flex-wrap text-center text-gray-600 mb-3">
           Here are a few past projects I have worked on. Want to see more? Email
           me.
         </p>
