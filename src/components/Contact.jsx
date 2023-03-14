@@ -4,8 +4,11 @@ import GmailIcon from "../assets/gmail.png";
 import Tel from "../assets/contact.png";
 import SendIcon from "@mui/icons-material/Send";
 import emailjs from "@emailjs/browser";
+import { useStateContext } from "../context/ContextProvider";
 
 const Contact = () => {
+  const { setNotification } = useStateContext();
+
   const form = useRef();
 
   const icons = [
@@ -31,8 +34,8 @@ const Contact = () => {
       )
       .then(
         (result) => {
-          console.log(result.text);
-          console.log("Message sent");
+          setNotification("Email has been sent");
+          e.target.reset();
         },
         (error) => {
           console.log(error.text);
