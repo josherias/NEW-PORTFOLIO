@@ -30,7 +30,7 @@ const router = createBrowserRouter([
       {
         path: "/projects",
         element: (
-          <Suspense fallback={"loading..."}>
+          <Suspense fallback={<LoadingComponent />}>
             <Projects />
           </Suspense>
         ),
@@ -41,11 +41,7 @@ const router = createBrowserRouter([
           },
           {
             path: "/projects/clients",
-            element: (
-              <Suspense fallback={"loading..."}>
-                <ClientsProject />
-              </Suspense>
-            ),
+            element: <ClientsProject />,
           },
         ],
       },
@@ -54,7 +50,7 @@ const router = createBrowserRouter([
   {
     path: "*",
     element: (
-      <Suspense fallback={"loading..."}>
+      <Suspense fallback={<LoadingComponent />}>
         <NotFound />
       </Suspense>
     ),
