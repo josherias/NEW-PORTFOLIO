@@ -1,23 +1,39 @@
+import { lazy, Suspense } from "react";
 import { createBrowserRouter } from "react-router-dom";
-import Home from "./views/Home";
-import Projects from "./views/Projects";
-import NotFound from "./views/NotFound";
-import DefaultContainer from "./components/DefaultContainer";
+
+const Home = lazy(() => import("./views/Home"));
+const Projects = lazy(() => import("./views/Projects"));
+const NotFound = lazy(() => import("./views/NotFound"));
+const DefaultContainer = lazy(() => import("./components/DefaultContainer"));
+
 import PersonalProjects from "./views/PersonalProjects";
 import ClientsProject from "./views/ClientsProject";
+import LoadingComponent from "./components/LoadingComponent";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <DefaultContainer />,
+    element: (
+      <Suspense fallback={<LoadingComponent />}>
+        <DefaultContainer />
+      </Suspense>
+    ),
     children: [
       {
         path: "/",
-        element: <Home />,
+        element: (
+          <Suspense fallback={<LoadingComponent />}>
+            <Home />
+          </Suspense>
+        ),
       },
       {
         path: "/projects",
-        element: <Projects />,
+        element: (
+          <Suspense fallback={"loading..."}>
+            <Projects />
+          </Suspense>
+        ),
         children: [
           {
             path: "/projects",
@@ -25,7 +41,11 @@ const router = createBrowserRouter([
           },
           {
             path: "/projects/clients",
-            element: <ClientsProject />,
+            element: (
+              <Suspense fallback={"loading..."}>
+                <ClientsProject />
+              </Suspense>
+            ),
           },
         ],
       },
@@ -33,7 +53,11 @@ const router = createBrowserRouter([
   },
   {
     path: "*",
-    element: <NotFound />,
+    element: (
+      <Suspense fallback={"loading..."}>
+        <NotFound />
+      </Suspense>
+    ),
   },
 ]);
 
